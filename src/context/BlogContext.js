@@ -3,12 +3,6 @@ import React, { useState } from 'react'
 const BlogContext = React.createContext()
 
 
-
-// const blogPosts = [
-//     {title:'Blog 1'},
-//     {title:'Blog 2'}
-// ]
-
 export const BlogProvider = ({children}) => {
 
     const [blogPosts, setBlogPosts ] = useState([])
