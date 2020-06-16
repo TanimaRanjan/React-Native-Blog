@@ -12,19 +12,28 @@ const ShowScreen = ({navigation}) => {
     // console
     return (
         <View style={style.viewStyle}>
-            <Text>{blogPost.title}</Text>
-            <Text>{blogPost.content}</Text>
+            <Text style={style.titleStyle}>{blogPost.title}</Text>
+            <Text style={style.contentStyle}>{blogPost.content}</Text>
         </View>
         )
 }
 
 const style = StyleSheet.create({
     viewStyle:{
+        margin:20,
+        padding:20,
         flex:1,
-    
-    },
-    textStyle: {
+        // justifyContent:"center",
 
+    },
+    titleStyle: {
+        fontSize:18,
+        fontWeight:'bold',
+        marginBottom:10,
+        textAlign:"center"
+    },
+    contentStyle: {
+        fontSize:15
     }
 })
 

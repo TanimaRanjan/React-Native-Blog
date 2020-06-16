@@ -8,7 +8,11 @@ const blogReducer = (state, action) => {
             return [...state, {
                         id:  Math.floor(Math.random() * 99999), 
                         title:`Blog Post #${state.length+1}`,
-                        content:`Blog Post Content #${state.length+1}`
+                        content:`
+Veggies sunt bona vobis, proinde vos postulo esse 
+magis grape pea sprouts horseradish courgette 
+maize spinach prairie turnip jícama coriander 
+quandong gourd broccoli seakale gumbo. #${state.length+1}`
                     }];
         case 'DELETE_BLOG':
             let filteredState = state.filter(item => item.id !== action.payload)
