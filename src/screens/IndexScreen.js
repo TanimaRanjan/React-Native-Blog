@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { View, Text, FlatList, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { Context } from '../context/BlogContext'
-import { AntDesign } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
 
 const IndexScreen = ({navigation}) => {
 
@@ -22,21 +22,34 @@ const IndexScreen = ({navigation}) => {
                     return  (
                         <TouchableOpacity 
                             onPress={() => navigation.navigate('Show', {id:item.id})} >
-                        <View style={style.itemStyle}>
-                            <Text style={style.titleStyle}>{item.title}- {item.id}</Text>
-                            <TouchableOpacity
-                                onPress={()=> {deleteBlogPost(item.id)}}>
-                                <Feather name="trash" style={style.iconStyle}  />
-                            </TouchableOpacity>
-                        </View>
+                            <View style={style.itemStyle}>
+                                <Text style={style.titleStyle}>{item.title}- {item.id}</Text>
+                                <TouchableOpacity
+                                    onPress={()=> {deleteBlogPost(item.id)}}>
+                                    <Feather name="trash" style={style.iconStyle}  />
+                                </TouchableOpacity>
+                            </View>
                         </TouchableOpacity> 
-                        )
+                    )
                 }}
             
             />
         </View>
     )
 }
+
+
+IndexScreen.navigationOptions = ({navigation}) => {
+    return {
+        headerRight: () => (
+          <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+          <AntDesign name="plus" style={style.plusIconStyle} />
+          </TouchableOpacity>
+        ),
+      };
+    
+}
+
 
 const style = StyleSheet.create({
     titleStyle: {
@@ -61,6 +74,11 @@ const style = StyleSheet.create({
     },
     iconStyle: {
         fontSize:24
+    },
+    plusIconStyle:{
+        fontSize:24,
+        marginRight:10,
+        paddingHorizontal:10
     }
 })
 
