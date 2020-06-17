@@ -7,12 +7,8 @@ const blogReducer = (state, action) => {
         case 'ADD_BLOG':
             return [...state, {
                         id:  Math.floor(Math.random() * 99999), 
-                        title:`Blog Post #${state.length+1}`,
-                        content:`
-Veggies sunt bona vobis, proinde vos postulo esse 
-magis grape pea sprouts horseradish courgette 
-maize spinach prairie turnip jícama coriander 
-quandong gourd broccoli seakale gumbo. #${state.length+1}`
+                        title:action.payload.title,
+                        content:action.payload.content
                     }];
         case 'DELETE_BLOG':
             let filteredState = state.filter(item => item.id !== action.payload)
@@ -23,8 +19,9 @@ quandong gourd broccoli seakale gumbo. #${state.length+1}`
 }
 
 const addBlogPost = dispatch => {
-    return () => { 
-        dispatch({type:'ADD_BLOG'})
+    return (title, content, cb) => { 
+        dispatch({type:'ADD_BLOG' , payload:{title, content}})
+        cb()
     }
 }
 
