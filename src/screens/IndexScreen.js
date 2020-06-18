@@ -48,6 +48,8 @@ IndexScreen.navigationOptions = ({navigation}) => {
 }
 
 
+
+
 const style = StyleSheet.create({
     titleStyle: {
         fontSize:18
