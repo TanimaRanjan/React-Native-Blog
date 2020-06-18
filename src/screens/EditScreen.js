@@ -48,7 +48,7 @@ const EditScreen = ({navigation}) => {
                 initialValues ={{title:blog.title, content:blog.content}}
                 onSubmit={(title, content) => {
                     console.log(title, content)
-                    editBlogPost(id, title,content, () => navigation.navigate('Index'))
+                    editBlogPost(id, title,content, () => navigation.pop())
                 }}
             />
         )
