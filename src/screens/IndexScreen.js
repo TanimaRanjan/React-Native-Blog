@@ -24,7 +24,7 @@ const IndexScreen = ({navigation}) => {
                         <TouchableOpacity 
                             onPress={() => navigation.navigate('Show', {id:item.id})} >
                             <View style={style.itemStyle}>
-                                <Text style={style.titleStyle}>{item.title}- {item.id}</Text>
+                                <Text style={style.titleStyle}>{item.title}</Text>
                                 <TouchableOpacity
                                     onPress={()=> {deleteBlogPost(item.id)}}>
                                     <Feather name="trash" style={style.iconStyle}  />
