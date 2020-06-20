@@ -6,8 +6,10 @@ import { AntDesign } from '@expo/vector-icons';
 
 const IndexScreen = ({navigation}) => {
 
-    const {state, addBlogPost, deleteBlogPost} = useContext(Context)
-    // console.log(blogPosts)
+    const {state, getBlogPosts, addBlogPost, deleteBlogPost} = useContext(Context)
+
+
+    
 
     return (
         <View style={style.viewStyle}>
