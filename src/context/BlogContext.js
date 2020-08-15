@@ -22,6 +22,7 @@ const blogReducer = (state, action) => {
     }
 }
 
+
 const getBlogPosts = dispatch => {
     return async () => {
         try {
@@ -39,7 +40,7 @@ const addBlogPost = dispatch => {
         try {
             await jsonServer.post('/blogposts', {title, content})
             // dispatch({type:'ADD_BLOG' , payload:{title, content}})   
-            if(callback()) {
+            if(callback) {
                 callback()  
             } 
         } catch(error) {
@@ -62,7 +63,7 @@ const editBlogPost = dispatch => {
             dispatch({   
                     type:'EDIT_BLOG', 
                     payload:{id, title, content}})
-            if(callback()) {
+            if(callback) {
                 callback()  
             } 
         } catch(error) {
